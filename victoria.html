@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El regreso a Ítaca · La Odisea</title>
+  <meta name="description" content="Historia interactiva basada en La Odisea de Homero: tus decisiones cambian el regreso de Odiseo a Ítaca.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap">
+  <link rel="stylesheet" href="nivel3.css">
+</head>
+<body class="nivel-3">
+  <div class="progreso" aria-hidden="true"></div>
+  <nav class="barra" aria-label="Navegación de la historia">
+    <a href="index.html">Inicio</a>
+    <span class="barra__nivel">Nivel 3 · La victoria</span>
+  </nav>
+
+<div class="fondo" aria-hidden="true"><iframe class="fondo__video" src="https://www.youtube.com/embed/FuHjPTW2bVQ?si=IxL4sEb6ZLNOKi6M&autoplay=1&mute=1&controls=0&loop=1&playlist=FuHjPTW2bVQ&playsinline=1&modestbranding=1&rel=0&disablekb=1" title="Video ambiental" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe></div>
+<div class="niebla niebla--1" aria-hidden="true"></div>
+<div class="niebla niebla--2" aria-hidden="true"></div>
+<div class="olas" aria-hidden="true"></div>
+<div class="particulas" aria-hidden="true"></div>
+
+  <main>
+    <section class="escena escena--hero" id="inicio">
+      <div class="par" data-velocidad="-0.08">
+        <div class="titulo reveal">
+          <span class="etapa-num">Nodo 3 · Final</span>
+          <h1>Ítaca</h1>
+          <h2>Odiseo y Telémaco derrotan a los pretendientes</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.04">
+        <div class="panel panel--ancho reveal reveal--retardo">
+          <p>El eco de la batalla se apaga poco a poco.</p>
+        </div>
+      </div>
+      <div class="pista-scroll reveal">Desciende para continuar</div>
+    </section>
+    <section class="escena escena--izq " id="escena-0">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">El fin de la batalla</span>
+          <h1>El salón en silencio</h1>
+          <h2>Padre e hijo, de pie</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Con ayuda de Atenea, de Eumeo y de Filetio, Odiseo y Telémaco acaban con los pretendientes. El salón, que tantas noches vio banquetes injustos, queda en calma.</p><p>Los sirvientes purifican la sala con fuego y azufre.</p>
+          
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--der " id="escena-1">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">El reencuentro</span>
+          <h1>Penélope</h1>
+          <h2>La prueba del lecho</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Penélope, todavía cautelosa, pone a prueba a su esposo hablando del lecho que Odiseo construyó con su propio tronco de olivo. Solo él puede saber que no puede moverse.</p><p>Al escucharlo, ella corre a abrazarlo. Veinte años de espera terminan en ese abrazo.</p>
+          
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--centro escena--final" id="escena-2">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">Fin</span>
+          <h1>Hogar</h1>
+          <h2>Ítaca vuelve a ser suya</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Odiseo y Telémaco ganan el derecho de su hogar. El rey recupera su trono, su esposa y su hijo.</p><p>El mar ya no lo llama. Este es el lugar al que siempre quiso volver.</p>
+          
+        </div>
+      </div>
+      <div class="par" data-velocidad="-0.02"><div class="titulo reveal"><h2 class="cita">El viaje termina donde empezó: en casa.</h2></div></div>
+    </section>
+    <section class="escena escena--decision" id="decision">
+      <div class="par" data-velocidad="-0.05">
+        <div class="titulo reveal">
+          <span class="etapa-num">Tu decisión</span>
+          <h1>Fin de esta historia</h1>
+          <h2>¿Quieres probar otro camino?</h2>
+        </div>
+      </div>
+      <div class="opciones">
+        <a class="opcion reveal" href="index.html"><h2>Volver a empezar</h2><p>Regresa al comienzo del viaje y toma decisiones distintas.</p></a>
+        <a class="opcion reveal" href="telemaco.html"><h2>Ver el camino de Telémaco</h2><p>Prueba otra ruta: ve cómo habría sido el plan con tu hijo.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">La Odisea · Homero · Historia interactiva</footer>
+  <script src="script.js"></script>
+</body>
+</html>

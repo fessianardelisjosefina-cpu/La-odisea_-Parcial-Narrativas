@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Los pretendientes gozan de los bienes · La Odisea</title>
+  <meta name="description" content="Historia interactiva basada en La Odisea de Homero: tus decisiones cambian el regreso de Odiseo a Ítaca.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap">
+  <link rel="stylesheet" href="nivel2.css">
+</head>
+<body class="nivel-2">
+  <div class="progreso" aria-hidden="true"></div>
+  <nav class="barra" aria-label="Navegación de la historia">
+    <a href="index.html">Inicio</a>
+    <span class="barra__nivel">Nivel 2 · El banquete</span>
+  </nav>
+
+<div class="fondo" aria-hidden="true"><div class="fondo__img" data-velocidad="-0.04"></div></div>
+<div class="niebla niebla--1" aria-hidden="true"></div>
+<div class="niebla niebla--2" aria-hidden="true"></div>
+<div class="olas" aria-hidden="true"></div>
+<div class="particulas" aria-hidden="true"></div>
+
+  <main>
+    <section class="escena escena--hero" id="inicio">
+      <div class="par" data-velocidad="-0.08">
+        <div class="titulo reveal">
+          <span class="etapa-num">Nodo 2</span>
+          <h1>El banquete sin fin</h1>
+          <h2>Los pretendientes abusan de la ley de Zeus</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.04">
+        <div class="panel panel--ancho reveal reveal--retardo">
+          <p>Mientras el mendigo observa en silencio, el salón estalla en risas, copas y música.</p>
+        </div>
+      </div>
+      <div class="pista-scroll reveal">Desciende para continuar</div>
+    </section>
+    <section class="escena escena--izq " id="escena-0">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">Abuso</span>
+          <h1>Reír y beber</h1>
+          <h2>La hospitalidad convertida en saqueo</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Los pretendientes gozan de los bienes de Ítaca, riendo y bebiendo sin fin. Han olvidado la ley de Zeus, que protege al huésped y exige respeto al anfitrión.</p><p>Agobian a Penélope en su propia casa y esperan que alguno de ellos reemplace a Odiseo como rey.</p>
+          
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--der " id="escena-1">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">Presagio</span>
+          <h1>Una advertencia</h1>
+          <h2>Ni un solo remordimiento</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Odiseo ve cómo cada uno de ellos se reparte las reses y el vino. Ninguno lamenta lo que hace.</p><p>Su decisión se endurece: en esta casa ya no habrá lugar para ellos.</p>
+          <p class="consecuencia">Tu ira crece, pero la paciencia seguirá siendo tu mejor arma.</p>
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--decision" id="decision">
+      <div class="par" data-velocidad="-0.05">
+        <div class="titulo reveal">
+          <span class="etapa-num">Tu decisión</span>
+          <h1>Dos opciones</h1>
+          <h2>Es hora de pasar de mirar a actuar.</h2>
+        </div>
+      </div>
+      <div class="opciones">
+        <a class="opcion reveal" href="penelope-duelo.html"><h2>Esperar el anuncio de Penélope</h2><p>La reina está a punto de hablar sobre un duelo.</p></a>
+        <a class="opcion reveal" href="sirvientes-reconocen.html"><h2>Contactar a los sirvientes</h2><p>Buscar la ayuda de quienes aún recuerdan a su rey.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">La Odisea · Homero · Historia interactiva</footer>
+  <script src="script.js"></script>
+</body>
+</html>

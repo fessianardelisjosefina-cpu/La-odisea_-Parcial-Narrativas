@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todos fallan, pero un mendigo lo intenta · La Odisea</title>
+  <meta name="description" content="Historia interactiva basada en La Odisea de Homero: tus decisiones cambian el regreso de Odiseo a Ítaca.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap">
+  <link rel="stylesheet" href="nivel3.css">
+</head>
+<body class="nivel-3">
+  <div class="progreso" aria-hidden="true"></div>
+  <nav class="barra" aria-label="Navegación de la historia">
+    <a href="index.html">Inicio</a>
+    <span class="barra__nivel">Nivel 3 · La prueba fallida</span>
+  </nav>
+
+<div class="fondo" aria-hidden="true"><iframe class="fondo__video" src="https://www.youtube.com/embed/FuHjPTW2bVQ?si=IxL4sEb6ZLNOKi6M&autoplay=1&mute=1&controls=0&loop=1&playlist=FuHjPTW2bVQ&playsinline=1&modestbranding=1&rel=0&disablekb=1" title="Video ambiental" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe></div>
+<div class="niebla niebla--1" aria-hidden="true"></div>
+<div class="niebla niebla--2" aria-hidden="true"></div>
+<div class="olas" aria-hidden="true"></div>
+<div class="particulas" aria-hidden="true"></div>
+
+  <main>
+    <section class="escena escena--hero" id="inicio">
+      <div class="par" data-velocidad="-0.08">
+        <div class="titulo reveal">
+          <span class="etapa-num">Nodo 3</span>
+          <h1>El arco de Odiseo</h1>
+          <h2>Todos los pretendientes fallan la prueba</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.04">
+        <div class="panel panel--ancho reveal reveal--retardo">
+          <p>Uno por uno, los pretendientes toman el arco. Ninguno logra siquiera tensarlo.</p>
+        </div>
+      </div>
+      <div class="pista-scroll reveal">Desciende para continuar</div>
+    </section>
+    <section class="escena escena--izq " id="escena-0">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">El fracaso</span>
+          <h1>Nadie puede</h1>
+          <h2>El arco los humilla</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Antínoo, Eurímaco y los demás se esfuerzan, se turnan, calientan la madera con grasa. El arco permanece rígido, y la frustración se vuelve rabia.</p>
+          
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--der " id="escena-1">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">El mendigo</span>
+          <h1>Una petición</h1>
+          <h2>«Déjame probar»</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Entre risas, un mendigo pide intentarlo. Los pretendientes se burlan, pero Penélope interviene: quien lo logre, sea quien sea, tiene derecho a probar.</p><p>Telémaco, con firmeza, ordena que entreguen el arco al extranjero.</p>
+          <p class="consecuencia">La sala contiene el aliento: el mendigo toma el arco.</p>
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--decision" id="decision">
+      <div class="par" data-velocidad="-0.05">
+        <div class="titulo reveal">
+          <span class="etapa-num">Tu decisión</span>
+          <h1>El momento decisivo</h1>
+          <h2>Una elección cambiará el desenlace.</h2>
+        </div>
+      </div>
+      <div class="opciones">
+        <a class="opcion reveal" href="telemaco-lucha.html"><h2>Telémaco bloquea la puerta</h2><p>Tu hijo entra en acción para que ningún pretendiente escape.</p></a>
+        <a class="opcion reveal" href="odiseo-revela.html"><h2>Revelar tu identidad</h2><p>Dejar caer los harapos y mostrar quién eres.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">La Odisea · Homero · Historia interactiva</footer>
+  <script src="script.js"></script>
+</body>
+</html>

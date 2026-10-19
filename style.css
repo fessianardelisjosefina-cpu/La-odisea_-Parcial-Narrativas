@@ -1,0 +1,441 @@
+/* =========================================================
+   LA ODISEA · Historia interactiva
+   style.css  ->  NIVEL 1 (base compartida) · El viaje comienza
+   Índice:
+   1. Variables
+   2. Reinicio y tipografías
+   3. Cursor personalizado
+   4. Fondos y capas atmosféricas (nivel 1)
+   5. Navegación y progreso
+   6. Escenas, títulos y paneles
+   7. Decisiones (enlaces entre nodos)
+   8. Animaciones de aparición
+   9. Responsive, táctil y movimiento reducido
+   ========================================================= */
+
+/* ---------- 1. Variables ---------- */
+:root {
+  --marron: #664135;
+  --marron-panel: rgba(102, 65, 53, 0.78);
+  --dorado: #C6A15B;
+  --dorado-claro: #E4CB8F;
+  --negro: #171311;
+  --marfil: #F3EBDD;
+  --azul-mar: #173B4A;
+  --niebla: #82969A;
+
+  --borde-dorado: 1px solid rgba(198, 161, 91, 0.75);
+  --sombra-panel: 0 18px 45px rgba(23, 19, 17, 0.65), 0 4px 10px rgba(23, 19, 17, 0.5);
+  --sombra-interna: inset 0 0 22px rgba(23, 19, 17, 0.35);
+  --sombra-titulo: 0 4px 22px rgba(23, 19, 17, 0.9), 0 1px 2px rgba(23, 19, 17, 1);
+
+  --t-aparicion: 1.1s;
+  --t-rapida: 0.3s;
+  --ease-epico: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --velo-fondo: linear-gradient(180deg, rgba(23, 19, 17, 0.55) 0%, rgba(23, 59, 74, 0.35) 45%, rgba(23, 19, 17, 0.75) 100%);
+  --imagen-fondo: url("img/barco.jpg");
+
+  /* Cursor: arco + flecha negros (borde marfil para verse sobre fondos oscuros) */
+  --cursor-normal: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M26 5 Q39 20 26 35' stroke='%23F3EBDD' stroke-width='6'/><path d='M3 20 L30 20' stroke='%23F3EBDD' stroke-width='6'/><path d='M3 20 L11 14 L11 26 Z' stroke='%23F3EBDD' stroke-width='5' fill='%23F3EBDD'/><path d='M26 5 Q39 20 26 35' stroke='%23171311' stroke-width='3'/><path d='M26 5 L26 35' stroke='%23171311' stroke-width='1'/><path d='M3 20 L30 20' stroke='%23171311' stroke-width='2.4'/><path d='M3 20 L11 14 L11 26 Z' stroke='%23171311' stroke-width='1' fill='%23171311'/></g></svg>") 3 20;
+  --cursor-activo: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M30 5 Q43 22 30 39' stroke='%23F3EBDD' stroke-width='6'/><path d='M3 22 L34 22' stroke='%23F3EBDD' stroke-width='6'/><path d='M3 22 L13 14 L13 30 Z' stroke='%23C6A15B' stroke-width='6' fill='%23C6A15B'/><path d='M30 5 Q43 22 30 39' stroke='%23171311' stroke-width='3.4'/><path d='M30 5 L30 39' stroke='%23171311' stroke-width='1'/><path d='M3 22 L34 22' stroke='%23171311' stroke-width='2.6'/><path d='M3 22 L13 14 L13 30 Z' stroke='%23171311' stroke-width='1.4' fill='%23C6A15B'/></g></svg>") 3 22;
+}
+
+/* ---------- 2. Reinicio y tipografías ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--negro);
+  color: var(--marfil);
+  overflow-x: hidden;
+  cursor: var(--cursor-normal), auto;
+}
+
+h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--marfil);
+  text-shadow: var(--sombra-titulo);
+  margin: 0 0 0.3em;
+}
+
+h2 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: clamp(1.15rem, 2.6vw, 1.9rem);
+  letter-spacing: 0.04em;
+  color: var(--dorado-claro);
+  text-shadow: var(--sombra-titulo);
+  margin: 0 0 0.6em;
+}
+
+h2.cita {
+  font-weight: 300;
+  font-style: italic;
+}
+
+p {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.85;
+  margin: 0 0 1em;
+}
+p:last-child { margin-bottom: 0; }
+
+/* ---------- 3. Cursor personalizado ---------- */
+a, button, .opcion, [role="button"] {
+  cursor: var(--cursor-activo), pointer;
+}
+p, h1, h2 { cursor: var(--cursor-normal), text; }
+
+::selection { background: var(--dorado); color: var(--negro); }
+
+/* ---------- 4. Fondos y capas atmosféricas (nivel 1) ---------- */
+.fondo {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 100%, var(--azul-mar), var(--negro) 70%);
+}
+
+.fondo__img {
+  position: absolute;
+  inset: -8%;
+  background-image: var(--imagen-fondo);
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  animation: navegar 38s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--velo-fondo);
+  pointer-events: none;
+}
+
+/* Niebla: dos capas de gradientes que derivan a distinta velocidad */
+.niebla {
+  position: fixed;
+  left: -25%;
+  width: 150%;
+  z-index: -3;
+  pointer-events: none;
+  filter: blur(18px);
+  opacity: 0.55;
+}
+.niebla--1 {
+  bottom: 0;
+  height: 55vh;
+  background:
+    radial-gradient(ellipse 30% 45% at 20% 70%, rgba(130, 150, 154, 0.55), transparent 70%),
+    radial-gradient(ellipse 35% 40% at 65% 80%, rgba(130, 150, 154, 0.45), transparent 70%),
+    radial-gradient(ellipse 25% 35% at 90% 60%, rgba(130, 150, 154, 0.4), transparent 70%);
+  animation: deriva-niebla 46s linear infinite alternate;
+}
+.niebla--2 {
+  top: 25vh;
+  height: 45vh;
+  opacity: 0.35;
+  background:
+    radial-gradient(ellipse 28% 40% at 35% 50%, rgba(243, 235, 221, 0.35), transparent 70%),
+    radial-gradient(ellipse 30% 35% at 80% 40%, rgba(130, 150, 154, 0.5), transparent 70%);
+  animation: deriva-niebla 62s linear infinite alternate-reverse;
+}
+
+/* Olas: bandas onduladas en el borde inferior */
+.olas {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 16vh;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 50% 0, transparent 58%, rgba(23, 59, 74, 0.85) 60%) 0 0 / 120px 60px repeat-x,
+    radial-gradient(circle at 50% 0, transparent 58%, rgba(23, 59, 74, 0.6) 60%) 60px 24px / 160px 70px repeat-x,
+    linear-gradient(180deg, transparent, rgba(23, 19, 17, 0.9));
+  animation: oleaje 14s linear infinite;
+}
+
+/* Partículas doradas flotantes (brasas / destellos) */
+.particulas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(228, 203, 143, 0.9) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle, rgba(243, 235, 221, 0.7) 0 1px, transparent 2px);
+  background-size: 190px 230px, 270px 170px;
+  background-position: 0 0, 80px 60px;
+  opacity: 0.35;
+  animation: asciende 60s linear infinite;
+}
+
+@keyframes navegar {
+  0%   { transform: scale(1.04) translate3d(-1.5%, 0.5%, 0); }
+  100% { transform: scale(1.12) translate3d(1.5%, -1.5%, 0); }
+}
+@keyframes deriva-niebla {
+  from { transform: translate3d(-6%, 0, 0); }
+  to   { transform: translate3d(6%, 0, 0); }
+}
+@keyframes oleaje {
+  from { background-position: 0 0, 60px 24px, 0 0; }
+  to   { background-position: 120px 0, 220px 24px, 0 0; }
+}
+@keyframes asciende {
+  from { background-position: 0 0, 80px 60px; }
+  to   { background-position: 0 -460px, 80px -340px; }
+}
+
+/* ---------- 5. Navegación y progreso ---------- */
+.progreso {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  width: calc(var(--progreso, 0) * 100%);
+  background: linear-gradient(90deg, var(--azul-mar), var(--dorado), var(--dorado-claro));
+  z-index: 60;
+  box-shadow: 0 0 12px rgba(198, 161, 91, 0.8);
+}
+
+.barra {
+  position: fixed;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(23, 19, 17, 0.7);
+  border: var(--borde-dorado);
+  border-radius: 999px;
+  box-shadow: var(--sombra-panel);
+  backdrop-filter: blur(6px);
+  font-family: "Titillium Web", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.barra a {
+  color: var(--dorado-claro);
+  text-decoration: none;
+  transition: color var(--t-rapida);
+}
+.barra a:hover, .barra a:focus-visible { color: var(--marfil); }
+.barra__nivel { color: var(--niebla); }
+
+/* ---------- 6. Escenas, títulos y paneles ---------- */
+main { position: relative; z-index: 1; }
+
+.escena {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14vh 7vw;
+  gap: 1.8rem;
+}
+.escena--hero {
+  min-height: 115vh;
+  align-items: center;
+  text-align: center;
+}
+.escena--izq   { align-items: flex-start; }
+.escena--der   { align-items: flex-end; }
+.escena--centro{ align-items: center; text-align: center; }
+
+.titulo { max-width: 900px; }
+.escena--der .titulo { text-align: right; }
+.escena--izq .titulo { text-align: left; }
+.escena--centro .titulo { text-align: center; }
+
+.etapa-num {
+  display: block;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--niebla);
+  margin-bottom: 0.4rem;
+  text-shadow: var(--sombra-titulo);
+}
+
+.panel {
+  position: relative;
+  width: min(100%, 560px);
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  background: var(--marron-panel);
+  border: var(--borde-dorado);
+  border-radius: 16px;
+  box-shadow: var(--sombra-panel), var(--sombra-interna);
+}
+.panel::before {
+  /* Filete dorado interior, detalle ornamental */
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  border-radius: 11px;
+  pointer-events: none;
+}
+.panel--ancho { width: min(100%, 720px); }
+
+.pista-scroll {
+  margin-top: 2rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--marfil);
+  text-shadow: var(--sombra-titulo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.pista-scroll::after {
+  content: "";
+  width: 14px; height: 14px;
+  border-right: 2px solid var(--dorado);
+  border-bottom: 2px solid var(--dorado);
+  transform: rotate(45deg);
+  animation: rebote 2.2s ease-in-out infinite;
+}
+@keyframes rebote {
+  0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.4; }
+  50%      { transform: translateY(10px) rotate(45deg); opacity: 1; }
+}
+
+/* ---------- 7. Decisiones ---------- */
+.escena--decision { min-height: 100vh; align-items: center; text-align: center; }
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  width: min(100%, 1000px);
+}
+.opcion {
+  display: block;
+  position: relative;
+  padding: 1.8rem 1.6rem;
+  text-align: left;
+  text-decoration: none;
+  color: var(--marfil);
+  background: var(--marron-panel);
+  border: var(--borde-dorado);
+  border-radius: 16px;
+  box-shadow: var(--sombra-panel), var(--sombra-interna);
+  transition: transform var(--t-rapida) var(--ease-epico), box-shadow var(--t-rapida), border-color var(--t-rapida), background var(--t-rapida);
+}
+.opcion h2 { margin-bottom: 0.5em; }
+.opcion p { margin: 0; }
+.opcion::after {
+  content: "→";
+  position: absolute;
+  right: 1.2rem; bottom: 0.9rem;
+  font-size: 1.5rem;
+  color: var(--dorado);
+  transition: transform var(--t-rapida);
+}
+.opcion:hover, .opcion:focus-visible {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--dorado-claro);
+  background: rgba(102, 65, 53, 0.92);
+  box-shadow: 0 26px 55px rgba(23, 19, 17, 0.8), 0 0 24px rgba(198, 161, 91, 0.35), var(--sombra-interna);
+  outline: none;
+}
+.opcion:hover::after { transform: translateX(6px); }
+
+.consecuencia {
+  font-style: italic;
+  border-left: 3px solid var(--dorado);
+  padding-left: 1rem;
+  color: var(--dorado-claro);
+}
+
+.pie {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--niebla);
+}
+
+/* ---------- 8. Animaciones de aparición ---------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 50px, 0) scale(0.97);
+  transition: opacity var(--t-aparicion) var(--ease-epico), transform var(--t-aparicion) var(--ease-epico);
+}
+.escena--izq  .panel.reveal { transform: translate3d(-60px, 30px, 0) scale(0.97); }
+.escena--der  .panel.reveal { transform: translate3d(60px, 30px, 0) scale(0.97); }
+.reveal--retardo { transition-delay: 0.25s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* El contenedor de parallax solo se traslada con JS; no recibe transiciones */
+[data-velocidad] { will-change: transform; }
+
+/* ---------- 9. Responsive, táctil y movimiento reducido ---------- */
+@media (max-width: 900px) {
+  .escena { padding: 13vh 5vw; }
+  .escena--izq, .escena--der { align-items: center; }
+  .escena--izq .titulo, .escena--der .titulo { text-align: center; }
+  .panel, .panel--ancho { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  h1 { letter-spacing: 0.05em; }
+  .barra { gap: 0.7rem; font-size: 0.75rem; padding: 0.4rem 0.9rem; }
+  .barra__nivel { display: none; }
+  .opciones { grid-template-columns: 1fr; }
+  .fondo__img { background-position: 40% 20%; }
+}
+
+/* Dispositivos táctiles: no hay cursor, se restauran los estándares */
+@media (hover: none), (pointer: coarse) {
+  body, p, h1, h2 { cursor: auto; }
+  a, button, .opcion { cursor: pointer; }
+  .opcion:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  [data-velocidad] { transform: none !important; }
+}

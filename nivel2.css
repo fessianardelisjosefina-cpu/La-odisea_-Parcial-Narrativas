@@ -1,0 +1,73 @@
+/* =========================================================
+   LA ODISEA · NIVEL 2 · Los peligros del viaje
+   Hereda la base de style.css y la oscurece con una atmósfera
+   más misteriosa y peligrosa.
+   ========================================================= */
+@import url("style.css");
+
+:root {
+  --imagen-fondo: url("https://viapais.com.ar/images/2026/09/23/FXAZpbTaWe_0x1000__detail.jpg");
+  --velo-fondo: linear-gradient(180deg, rgba(23, 19, 17, 0.75) 0%, rgba(23, 19, 17, 0.5) 40%, rgba(23, 19, 17, 0.88) 100%);
+  --marron-panel: rgba(102, 65, 53, 0.82);
+  --sombra-panel: 0 24px 60px rgba(0, 0, 0, 0.8), 0 6px 14px rgba(0, 0, 0, 0.6);
+  --peligro: rgba(150, 40, 30, 0.35);
+}
+
+.fondo { background: radial-gradient(ellipse at 50% 30%, #2a1f1b, var(--negro) 75%); }
+
+.fondo__img {
+  opacity: 0.55;
+  filter: saturate(0.85) contrast(1.05);
+  background-position: center;
+  animation: acecho 46s ease-in-out infinite alternate;
+}
+
+/* Viñeta que "respira" para transmitir amenaza */
+.fondo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.75) 100%);
+  animation: latido 9s ease-in-out infinite;
+}
+
+/* Resplandor rojizo en el horizonte: presagio del peligro */
+.olas {
+  opacity: 0.45;
+  background:
+    radial-gradient(circle at 50% 0, transparent 58%, rgba(23, 19, 17, 0.9) 60%) 0 0 / 120px 60px repeat-x,
+    radial-gradient(circle at 50% 0, transparent 58%, rgba(23, 59, 74, 0.55) 60%) 60px 24px / 160px 70px repeat-x,
+    linear-gradient(180deg, transparent, var(--peligro));
+}
+
+.niebla { opacity: 0.4; }
+
+.particulas { opacity: 0.25; animation-duration: 90s; }
+
+.panel {
+  border-color: rgba(198, 161, 91, 0.85);
+}
+.panel::before { border-color: rgba(198, 161, 91, 0.32); }
+
+h1 { text-shadow: 0 6px 30px rgba(0, 0, 0, 1), 0 0 40px rgba(150, 40, 30, 0.35); }
+
+.etapa-num { color: #b9a07a; }
+
+.opcion:hover, .opcion:focus-visible {
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.9), 0 0 26px rgba(198, 161, 91, 0.4), var(--sombra-interna);
+}
+
+@keyframes acecho {
+  0%   { transform: scale(1.05) translate3d(2%, 0, 0); }
+  100% { transform: scale(1.14) translate3d(-2%, -2%, 0); }
+}
+@keyframes latido {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondo::before { animation: none; }
+}

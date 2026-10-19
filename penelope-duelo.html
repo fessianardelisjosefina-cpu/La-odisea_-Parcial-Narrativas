@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penélope anuncia el duelo · La Odisea</title>
+  <meta name="description" content="Historia interactiva basada en La Odisea de Homero: tus decisiones cambian el regreso de Odiseo a Ítaca.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap">
+  <link rel="stylesheet" href="nivel2.css">
+</head>
+<body class="nivel-2">
+  <div class="progreso" aria-hidden="true"></div>
+  <nav class="barra" aria-label="Navegación de la historia">
+    <a href="index.html">Inicio</a>
+    <span class="barra__nivel">Nivel 2 · El duelo de Penélope</span>
+  </nav>
+
+<div class="fondo" aria-hidden="true"><div class="fondo__img" data-velocidad="-0.04"></div></div>
+<div class="niebla niebla--1" aria-hidden="true"></div>
+<div class="niebla niebla--2" aria-hidden="true"></div>
+<div class="olas" aria-hidden="true"></div>
+<div class="particulas" aria-hidden="true"></div>
+
+  <main>
+    <section class="escena escena--hero" id="inicio">
+      <div class="par" data-velocidad="-0.08">
+        <div class="titulo reveal">
+          <span class="etapa-num">Nodo 2</span>
+          <h1>La prueba del arco</h1>
+          <h2>Penélope habla con los pretendientes sobre un duelo</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.04">
+        <div class="panel panel--ancho reveal reveal--retardo">
+          <p>La reina baja al salón. Todos callan.</p>
+        </div>
+      </div>
+      <div class="pista-scroll reveal">Desciende para continuar</div>
+    </section>
+    <section class="escena escena--izq " id="escena-0">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">El anuncio</span>
+          <h1>Una condición</h1>
+          <h2>El ganador podrá casarse con ella</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Penélope trae el arco de Odiseo y doce hachas alineadas. Anuncia que se casará con quien logre tensar el arco y hacer pasar una flecha por los doce anillos.</p><p>El ganador se convertirá en rey de Ítaca, pero bajo sus condiciones.</p>
+          
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--der " id="escena-1">
+      <div class="par" data-velocidad="-0.06">
+        <div class="titulo reveal">
+          <span class="etapa-num">La espera</span>
+          <h1>Los pretendientes se burlan</h1>
+          <h2>Seguros de su victoria</h2>
+        </div>
+      </div>
+      <div class="par" data-velocidad="0.03">
+        <div class="panel reveal reveal--retardo">
+          <p>Los pretendientes aceptan sin dudar. Ninguno sospecha que la prueba ha sido pensada para dejar el arco, y el momento, en manos de Odiseo.</p><p>Mientras tanto, Telémaco recorre en silencio los accesos del palacio.</p>
+          <p class="consecuencia">El tiempo ya corre: el torneo decidirá el destino de Ítaca.</p>
+        </div>
+      </div>
+      
+    </section>
+    <section class="escena escena--decision" id="decision">
+      <div class="par" data-velocidad="-0.05">
+        <div class="titulo reveal">
+          <span class="etapa-num">Tu decisión</span>
+          <h1>La hora del torneo</h1>
+          <h2>¿Cómo continúa?</h2>
+        </div>
+      </div>
+      <div class="opciones">
+        <a class="opcion reveal" href="fallan-mendigo.html"><h2>Esperar el resultado de la prueba</h2><p>Observar desde la mesa de los mendigos cómo fallan uno tras otro.</p></a>
+        <a class="opcion reveal" href="telemaco-lucha.html"><h2>Telémaco se adelanta</h2><p>Tu hijo no soporta más y decide actuar antes de la prueba.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">La Odisea · Homero · Historia interactiva</footer>
+  <script src="script.js"></script>
+</body>
+</html>
